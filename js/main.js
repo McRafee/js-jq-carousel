@@ -22,8 +22,6 @@
 $(document).ready(function() {
 
     // Invoco le funzioni per cambiare slide
-    //$('.next').click(nextSlide);        // Al click richiamo la funzione per aggiornare l'immagine visualizzando la successiva
-    //$('.prev').click(prevSlide);
 
     $('.next').click(nextSlide);
 
@@ -33,11 +31,15 @@ $(document).ready(function() {
 
     $('.player-nav .fa-stop').click(stopNext);
 
-    function goNext() {
-        var avanti = setInterval(nextSlide, 2000);
-        return avanti;
-    }
+    $('.images').mouseenter(stopNext);
 
+    $('.images').mouseleave(goNext);
+
+    function goNext() {
+        var next = setInterval(nextSlide, 2000);
+        return next;
+    }
+    var goNext = goNext();
     setTimeout(stopNext, 20000);
 
     function stopNext() {
@@ -97,10 +99,9 @@ $(document).ready(function() {
             prossimaPallino.addClass('active');
         }
     }
-    //
+
     // function myStopFunction(myVar, time) {
     //     setTimeout(clearInterval(myVar), time);
     // }
-
 
 });
